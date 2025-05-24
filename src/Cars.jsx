@@ -44,48 +44,35 @@ function Cars() {
         {name: "color", value: color, placeholder: "Votre couleur ..."}
     ]
 
-    return ( 
-        <>
-            {array.map((elem, id) =>                 
-                <Input 
-                    key={id} 
-                    name={elem.name}
-                    value={elem.value} 
-                    placeholder={elem.placeholder}
-                    handleChange={handleChange}
-            />)}
-            
-            {/* On a nos 3 Inputs issus du composant Input.jsx */}
-            {/* <Input 
-                name="brand"
-                value={brand} 
-                placeholder="Votre marque ..."
-                handleChange={handleChange}
-            />
-
-            <Input 
-                name="model"
-                value={model} 
-                placeholder="Votre modèle ..."
-                handleChange={handleChange}
-            />
-
-            <Input 
-                name="color"
-                value={color} 
-                placeholder="Votre couleur ..."
-                handleChange={handleChange}
-            /> */}
-
-            {/* On écoute le click sur le bouton de soumission et on appelle handleSubmit */}
-            <button onClick={() => handleSubmit()}>Afficher infos</button>
-
-            {/* Si on a bien cliqué sur le bouton de soumission on affiche la phrase */}
-            { submit &&  <h3>La {brand} {model} est de couleur {color} </h3>  }
-
-            
-        </>
-     );
+    
+        return (
+            <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6 space-y-6">
+              {array.map((elem, id) => (
+                <Input
+                  key={id}
+                  name={elem.name}
+                  value={elem.value}
+                  placeholder={elem.placeholder}
+                  handleChange={handleChange}
+                />
+              ))}
+          
+              {/* Bouton de soumission stylisé */}
+              <button
+                onClick={handleSubmit}
+                className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-2 rounded-md transition duration-200"
+              >
+                Afficher infos
+              </button>
+          
+              {/* Affichage conditionnel de l'info */}
+              {submit && (
+                <h3 className="text-xl text-gray-800">
+                  La {brand} {model} est de couleur {color}
+                </h3>
+              )}
+            </div>
+          );
 }
 
 export default Cars;
