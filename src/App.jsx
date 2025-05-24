@@ -1,6 +1,6 @@
 import './App.css'
 import { useState } from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from 'react-router-dom';
 import React from 'react';
 import Quiz from './Quiz.jsx';
 import Layout from './Layout.jsx';
@@ -14,22 +14,11 @@ import Todo from './Todo.jsx';
 import Mysic from './Mysic.jsx';
 import Album from './Album.jsx';
 
-ReactDom.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <browserRouter basename={"/First-React"}>
-      <App />
-    </browserRouter>
-  </React.StrictMode>
-);
-
-
-
-
 
 function App() {
   const [playlistTracks, setPlaylistTracks] = useState(JSON.parse(localStorage.getItem("playlist")) || [])
   return (
-    <BrowserRouter>
+    
     <Routes>
       <Route path="/" element={<Layout playlistTracks={playlistTracks} setPlaylistTracks={setPlaylistTracks} />}>
         <Route index element={<Home />} />
@@ -44,7 +33,7 @@ function App() {
         <Route path="*" element={<Nopage />} />
       </Route>
     </Routes>
-  </BrowserRouter>
+  
   );
 }
 
