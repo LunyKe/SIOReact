@@ -14,6 +14,14 @@ import Todo from './Todo.jsx';
 import Mysic from './Mysic.jsx';
 import Album from './Album.jsx';
 
+ReactDom.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <browserRouter basename={"/First-React"}>
+      <App />
+    </browserRouter>
+  </React.StrictMode>
+);
+
 
 
 
