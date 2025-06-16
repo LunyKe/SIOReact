@@ -38,7 +38,7 @@ function GeoQuiz() {
 
   // Notre fonction pour fetch 
   function fetchAPI() {
-    fetch("https://restcountries.com/v3.1/all")
+    fetch("https://restcountries.com/v3.1/all?fields=name,flags")
       .then(res => res.json())
       .then(data => {
         // On vide le message dit de correction (Bonne ou mauvaise réponse)
